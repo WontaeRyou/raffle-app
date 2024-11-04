@@ -40,7 +40,7 @@ export const ProductCard = ({ product, onEnterRaffle }: ProductCardProps) => {
 
           <div className="flex items-center text-gray-500">
             <Gift className="w-4 h-4 mr-2 text-blue-600" />
-            <span className="text-sm">{product.phrases.toLocaleString()}</span>
+            <span className="text-sm">{product.participants.toLocaleString()}</span>
           </div>
         </div>
 

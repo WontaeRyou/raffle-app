@@ -4,6 +4,8 @@ import React from 'react';
 import { ChevronLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Product } from '@/types';
+import Image from 'next/image';
+
 
 interface DetailViewProps {
   product: Product;
@@ -28,11 +30,13 @@ const DetailView = ({ product, onBack, onStartMission }: DetailViewProps) => {
 
       <div className="flex-1 overflow-auto pb-24">
         <div className={`relative mx-auto w-full h-64 ${product.backgroundColor}`}>
-          <img
-            src="/images/black11.png"
-            alt={product.name}
-            className="w-full h-full object-contain py-4"
-          />
+        <Image 
+        src={product.image}
+        alt={product.name}
+        fill
+        className="object-contain"
+        sizes="(max-width: 768px) 100vw, 50vw"
+        />
         </div>
 
         <div className="p-5 space-y-4">
@@ -55,7 +59,7 @@ const DetailView = ({ product, onBack, onStartMission }: DetailViewProps) => {
             <h3 style={{ fontWeight: 'bold'}} className="font-medium mb-2 text-gray-800">📌유의사항</h3>
             <p style={{marginTop: '10px', lineHeight: '2.0'}} className="text-lg text-gray-900"> 삼성카드 및 모니모 회원들을 위한 &nbsp; &nbsp; &nbsp; 
               LINK 혜택을 독점 제공합니다. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-              "젤리 1개로 응모하기" 버튼을 터치하여  LINK 혜택을 받아가세요!
+              &quot;젤리 1개로 응모하기&quot; 버튼을 터치하여  LINK 혜택을 받아가세요!
             </p> &nbsp;
             <h3 style={{ fontWeight: 'bold'}} className="font-medium mb-2 text-gray-800">📌이벤트 안내</h3>
             <p style={{marginTop: '10px', lineHeight: '2.0'}} className="text-lg text-gray-900"> -응모 기간: 11.1(금) ~ 11.22(금) <br /> -당첨자 발표: 11.25(월)
