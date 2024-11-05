@@ -21,7 +21,7 @@ const FinishedWork = ({ onBack, ticketCount  }: FinishedWorkProps) => {
       </header>
 
       <div className="flex flex-col items-center justify-center text-center p-5 mt-4">
-        <h2 className="text-2xl font-bold mb-1">응모 완료🎉</h2>
+        <h2 className="text-2xl text-gray-800 font-bold mb-1">응모 완료🎉</h2>
         <p className="text-red-600 text-lg">11월 15일을 기대해주세요!</p>
       </div>
 

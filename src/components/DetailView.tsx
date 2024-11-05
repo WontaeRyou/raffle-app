@@ -50,7 +50,7 @@ const DetailView = ({ product, onBack, onStartMission }: DetailViewProps) => {
               </span>
             </div>
           </div>
-          <div className="bg-white rounded-2xl p-4 shadow-sm h-[470px]"> 
+          <div className="bg-white rounded-2xl p-4 shadow-sm h-[550px]"> 
             <h3 style={{ fontWeight: 'bold'}} className="font-medium mb-2 text-gray-800">완벽한 연말을 보내는 최고의 선택, 화제의 예능 '흑백요리사'
             최현석 셰프의 파인다이닝 레스토랑 '쵸이닷'으로 초대합니다! <br/ > <br/ >'젤리 1개로 응모하기' 버튼을 터치하여 식사권 기회를 노려보세요! </h3>
             <br/ >
