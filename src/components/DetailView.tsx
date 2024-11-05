@@ -16,22 +16,17 @@ interface DetailViewProps {
 const DetailView = ({ product, onBack, onStartMission }: DetailViewProps) => {
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col">
-      <header className="bg-white border-b flex items-center p-4">
-        <Button 
-          variant="ghost" 
-          size="icon" 
-          className="mr-2"
-          onClick={onBack}
-        >
+           <header className="bg-white border-b flex items-center p-4 relative">
+        <Button variant="ghost" size="icon" className="absolute left-4" onClick={onBack}>
           <ChevronLeft className="h-5 w-5 text-gray-600" />
         </Button>
-        <span className="font-medium text-gray-800">monimo jelly raffle</span>
+        <h1 className="font-bold text-gray-800 uppercase mx-auto">monimo Lucky Jelly</h1>
       </header>
 
       <div className="flex-1 overflow-auto pb-24">
         <div className={`relative mx-auto w-full h-64 ${product.backgroundColor}`}>
         <Image 
-        src={product.image}
+        src="/images/blackchef.png"
         alt={product.name}
         fill
         className="object-contain"
@@ -56,20 +51,16 @@ const DetailView = ({ product, onBack, onStartMission }: DetailViewProps) => {
             </div>
           </div>
           <div className="bg-white rounded-2xl p-4 shadow-sm h-[470px]"> 
-            <h3 style={{ fontWeight: 'bold'}} className="font-medium mb-2 text-gray-800">📌유의사항</h3>
-            <p style={{marginTop: '10px', lineHeight: '2.0'}} className="text-lg text-gray-900"> 삼성카드 및 모니모 회원들을 위한 &nbsp; &nbsp; &nbsp; 
-              LINK 혜택을 독점 제공합니다. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-              &quot;젤리 1개로 응모하기&quot; 버튼을 터치하여  LINK 혜택을 받아가세요!
-            </p> &nbsp;
+            <h3 style={{ fontWeight: 'bold'}} className="font-medium mb-2 text-gray-800">완벽한 연말을 보내는 최고의 선택, 화제의 예능 '흑백요리사'
+            최현석 셰프의 파인다이닝 레스토랑 '쵸이닷'으로 초대합니다! <br/ > <br/ >'젤리 1개로 응모하기' 버튼을 터치하여 식사권 기회를 노려보세요! </h3>
+            <br/ >
             <h3 style={{ fontWeight: 'bold'}} className="font-medium mb-2 text-gray-800">📌이벤트 안내</h3>
-            <p style={{marginTop: '10px', lineHeight: '2.0'}} className="text-lg text-gray-900"> -응모 기간: 11.1(금) ~ 11.22(금) <br /> -당첨자 발표: 11.25(월)
+            <p style={{marginTop: '10px', lineHeight: '2.0'}} className="text-lg text-gray-900"> -응모 기간: 11.1(금) ~ 11.7(목) <br /> -당첨자 발표: 11.8(금)
+            <br /> -일정: 12/14(토) 17:00 ~ 19:00
             </p>
             &nbsp;
             <h3 style={{ fontWeight: 'bold'}} className="font-medium mb-2 text-gray-800">📌당첨 혜택 안내</h3>
-            <p style={{marginTop: '10px', lineHeight: '2.0'}} className="text-lg text-gray-900"> -혜택: 이마트 오프라인 할인 20% <br/ >
-            -당첨자 수: 100명
-            </p>
-            <p style={{marginTop: '10px', lineHeight: '2.0', whiteSpace: "pre-line"}} className="text-lg text-gray-900"> 
+            <p style={{marginTop: '10px', lineHeight: '2.0'}} className="text-lg text-gray-900"> -혜택: 식사권(디너 코스) 10명 (동반 1인) <br/ > -당첨자에게는 유선 연락드립니다.
             </p>
             <div className="flex gap-2 mt-3">
             </div>

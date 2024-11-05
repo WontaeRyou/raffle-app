@@ -1,4 +1,5 @@
 export interface Product {
+    phrases: string;
     id: number;
     name: string;
     deadline: string;

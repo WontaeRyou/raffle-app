@@ -1,3 +1,4 @@
+// RaffleApp.tsx
 "use client";
 
 import React, { useState } from 'react';
@@ -7,15 +8,17 @@ import { Product } from '@/types';
 import ProductCard from '@/components/ProductCard';
 import DetailView from '@/components/DetailView';
 import MissionView from '@/components/MissionView';
+import FinishedWork from '@/components/FinishedWork';
 
 const RaffleApp = () => {
   const [currentView, setCurrentView] = useState('list');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [ticketCount, setTicketCount] = useState(1); // 기본 응모권 수
 
   const products = [
     {
       id: 1,
-      name: "흑백요리사🔪 최현석 셰프의 파인다이닝 <초이닷> 초대권 이벤트",
+      name: "흑백요리사🍽️ 최현석 셰프의 파인다이닝 <초이닷> 초대권 이벤트",
       deadline: "2024-11-07",
       image: "/images/dining.png",
       image_detail:"/images/1234.png",
@@ -57,17 +60,29 @@ const RaffleApp = () => {
     setCurrentView('mission');
   };
 
+  const handleCompleteMission = (finalTicketCount: number) => {
+    setTicketCount(finalTicketCount);
+    setCurrentView('finished');
+  };
+
   const handleBack = () => {
     if (currentView === 'mission') {
       setCurrentView('detail');
     } else if (currentView === 'detail') {
       setCurrentView('list');
       setSelectedProduct(null);
+    } else if (currentView === 'finished') {
+      setCurrentView('list');
+      setSelectedProduct(null);
     }
   };
 
+  if (currentView === 'finished') {
+    return <FinishedWork onBack={handleBack} ticketCount={ticketCount} />;
+  }
+
   if (currentView === 'mission') {
-    return <MissionView onBack={handleBack} />;
+    return <MissionView onBack={handleBack} onCompleteMission={handleCompleteMission} />;
   }
 
   if (currentView === 'detail' && selectedProduct) {
@@ -82,12 +97,16 @@ const RaffleApp = () => {
 
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col">
-      <header className="bg-white border-b flex items-center p-4">
-        <Button variant="ghost" size="icon" className="mr-2">
-          <ChevronLeft className="h-5 w-5 text-gray-600" />
-        </Button>
-        <h1 className="font-medium text-gray-800">monimo lucky jelly</h1>
-      </header>
+     <header className="bg-white border-b flex items-center p-4 relative">
+  <Button 
+    variant="ghost" 
+    size="icon" 
+    className="absolute left-4" // Button을 왼쪽에 고정
+  >
+    <ChevronLeft className="h-5 w-5 text-gray-600" />
+  </Button>
+  <h1 className="font-bold text-gray-800 uppercase mx-auto">Monimo Lucky Jelly</h1>
+</header>
 
       <div className="px-5 py-8 bg-gradient-to-br from-blue-600 to-blue-700 text-white">
         <h2 className="text-2xl font-bold mb-2">11월 이달의 응모🎉</h2>
